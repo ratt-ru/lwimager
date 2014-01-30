@@ -1,42 +1,36 @@
-This is the casarest package, the remainder of the AIPS++
-libraries. It consists of the libraries:
-   msvis
-   calibration
-   synthesis
-   flagging
-   simulators
-   ionosphere
-The prorgram lwimager (part of synthesis) is the main deliverable.
+Lwimager
+========
 
-It can be checked out like:
- svn co svn+ssh://user@lofar9.astron.nl/var/svn/repos/trunk/casarest casarest
+This is the Lwimager, which used to be the casarest package.
+The casarest package was the remainder of the AIPS++ libraries.
 
-It uses cmake as its build system (minimum version is 2.6)
-and can be built like:
+The home of Lwimager is:
 
- cd casarest
- mkdir build
- cd build
- cmake .. -DCASACORE_ROOT_DIR=/home/user
-   -DHDF5_ROOT_DIR=/Users/diepen/hdf5-3xx ..
-   -DCMAKE_INSTALL_PREFIX=/home/user
-   -DLIB_EXTRA_SYNTHESIS=gfortran
-   -DBUILD_ALL=1
+https://github.com/ska-sa/lwimager
 
-By default only the msvis, calibration, and synthesis libraries are
-built as well as the lwimager program.
-If -DBUILD_ALL=1 is given, the flagging and simulators libraries are
-built too.
-Ionosphere is not built at the moment, because it depends on the PIM package.
+Installation
+============
 
-The synthesis library is a mix of Fortran and C++ code, hence the
-fortran library needs to known when linking synthesis.
-Alas cmake versions before 2.8 did not handle it well. Therefore this
-library needs to be given using -DLIB_EXTRA_SYNTHESIS. It defaults to
-gfortran, which is usually fine. 
+There are debian packages available from:
 
-HDF5_ROOT_DIR only needs to be given if casacore was built with HDF5
-support.
+https://launchpad.net/~ska-sa/+archive/main/
 
-If you don't have your own ~/.casarc, copy the provided casarc file to
-~/.casarc.
+Alternativly you can build from source. Lwimager depends on
+cmake, casacore, boost, wcslib, cfitsio and gfortran.
+
+You can install these on Debian (or similar):
+
+ $ apt-get install cmake libcasacore-dev libboost-dev wcslib-dev \
+    libcfitsio3-dev libboost-system-dev libboost-thread-dev gfortran
+    
+and then compile it with:
+
+ $ mkdir build
+ $ cd build
+ $ cmake .. 
+ $ make 
+
+Questions or problems?
+----------------------
+
+Just e-mail Oleg Smirnov <osmirnov@gmail.com> or open an issue on Github.
