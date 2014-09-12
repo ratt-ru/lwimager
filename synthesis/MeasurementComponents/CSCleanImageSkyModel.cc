@@ -81,8 +81,9 @@ Bool CSCleanImageSkyModel::solve(SkyEquation& se) {
     makeNewtonRaphsonStep(se, False);
   }
 
-  if( numberIterations() < 1)
-    return True;
+// OMS: removing this -- we want the predict to go forward!
+//  if( numberIterations() < 1)
+//    return True;
   //Make the PSFs, one per field
 
   os << LogIO::NORMAL    // Loglevel PROGRESS
