@@ -161,7 +161,7 @@ int main (Int argc, char** argv)
   try {
     Input inputs(1);
     // define the input structure
-    inputs.version("1.3.1");
+    inputs.version("1.3.2");
     inputs.create ("ms", "",
 		   "Name of input MeasurementSet",
 		   "string");
@@ -489,7 +489,7 @@ int main (Int argc, char** argv)
     // The non-parameterized values used are the defaults in imager.g.
     MeasurementSet ms(msName, Table::Update);
     Imager imager(ms,False,useModel);
-    cout << "fillModel is "<<useModel;
+    //    cout << "fillModel is "<<useModel;
     // Use channel mode if only one data channel per image-channel.
     if (nchan.size() == 1  &&  nchan[0] == img_nchan) {
       mode = "channel";
