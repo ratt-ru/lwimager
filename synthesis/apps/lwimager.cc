@@ -161,7 +161,7 @@ int main (Int argc, char** argv)
   try {
     Input inputs(1);
     // define the input structure
-    inputs.version("1.3.2");
+    inputs.version("1.3.3");
     inputs.create ("ms", "",
 		   "Name of input MeasurementSet",
 		   "string");
